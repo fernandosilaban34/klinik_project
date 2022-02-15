@@ -1,0 +1,3 @@
+export * from './DataPastien';
+export * from './InputDataPasien';
+export * from './UpdateDataPasien';
