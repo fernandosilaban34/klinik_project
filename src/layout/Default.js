@@ -1,11 +1,10 @@
 import React from 'react'
-import Sidebar from './Sidebar';
 import { Container, Row, Col } from "react-bootstrap";
 import MainNavbar from './MainNavbar';
 
 const Default = ({ children, noNavbar, noFooter }) => (
   <Container style={sytles.root}>
-      <Sidebar />
+      {/* <Sidebar /> */}
       <div style={sytles.contentContainer}>
         {!noNavbar && <MainNavbar />}
         <main style={sytles.content}>
@@ -32,7 +31,7 @@ const sytles = {
   root: {
     display: "grid",
     maxWidth: "100vw",
-    gridTemplateColumns: "auto 1fr",
+    // gridTemplateColumns: "auto 1fr",
     padding: 0,
     backgroundColor:'#EEF0F3'
   },

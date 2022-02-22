@@ -1,3 +1,4 @@
-export * from './DataPastien';
-export * from './InputDataPasien';
-export * from './UpdateDataPasien';
+export * from './GetDataClaim';
+export * from './ShowModal';
+export * from './ValidasiDeletFIle';
+export * from './DeleteClaimFile';

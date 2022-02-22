@@ -9,16 +9,13 @@ const initialState = {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state = initialState, action) => {
-
     switch (action.type) {
-        case "INPUT_DATA_PASIEN":
+        case "VALIDASI_FILE":
             return {
                 ...state,
                 isLoading: true,
                 results: action.payload
             };
-
-
         default:
             return state;
     }

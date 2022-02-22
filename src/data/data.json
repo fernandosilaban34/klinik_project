@@ -1,0 +1,98 @@
+{
+    "ResponseCode": "00",
+    "ResponseDescription": "Success",
+    "ResponseData": {
+        "polis": [
+            {
+                "id_claim_confirm": 264,
+                "tanggal_rekam": "17 Feb 2022 22:42:26",
+                "covering_source": "AJKOGEN2",
+                "tgl_pengajuan": "17 Feb 2022 22:42:26",
+                "no_pengajuan_klaim": "C22020000044",
+                "fid_program": 9958,
+                "fidprogram": "9958 - Kupedes Flat Gen 2 BRILife",
+                "jenis_klaim": "63 - Meninggal Dunia",
+                "kode_produk": "K05A",
+                "nomor_peserta": "00200.05755.2020.03.00002.H3.1",
+                "pengajuan_ke": 1,
+                "tanggal_kejadian": "14 Feb 2022",
+                "tanggal_wafat": "14 Feb 2022",
+                "tanggal_payoff": "18 Feb 2022",
+                "nominal_payoff_sisa_pokok": 8091587,
+                "nominal_payoff_bunga_berjalan": 1799841,
+                "nominal_payoff_lainnya": 0,
+                "nominal_payoff_total": 0,
+                "nominal_payoff_denda": 0,
+                "nominal_payoff_biaya_rupa": 0,
+                "nominal_payoff_biaya_lain": 0,
+                "approval_maturity_dateclaim": "Feb 24 2022 12:00AM",
+                "tanggak_kolektabilitas": null,
+                "kolektabilitas": "0",
+                "remark_claim": "BRISURF_CLM_009958_575501005414109_01_01",
+                "no_hp_pengaju_klaim": "081286226211",
+                "sts_rek_pinjaman": null,
+                "id_klaim_detail": 217
+            }
+        ],
+        "klaim_file": [
+            {
+                "id_docs": "1",
+                "nama_dokumen": "Identitas (*)",
+                "mandatory": 1,
+                "list_file": [
+                    {
+                        "file_source": "02",
+                        "id": 1,
+                        "file_name": "ktp_01.jpg",
+                        "file_pathdir": "/TransFilesUploads/Claim/2022/01/10/C22020000010/"
+                    }
+                ],
+                "padleft_filename": "C22020000044",
+                "brisurf_key_GetDigitalDoc": "ktp",
+                "file_max": 1,
+                "size_max": 5120
+            },
+            {
+                "id_docs": "2",
+                "nama_dokumen": "Loan Payoff (*)",
+                "mandatory": 1,
+                "list_file": [{}],
+                "padleft_filename": "C22020000044",
+                "brisurf_key_GetDigitalDoc": null,
+                "file_max": 2,
+                "size_max": 5120
+            },
+            {
+                "id_docs": "3",
+                "nama_dokumen": "Surat Kematian (*)",
+                "mandatory": 1,
+                "list_file": [{}],
+                "padleft_filename": "C22020000044",
+                "brisurf_key_GetDigitalDoc": null,
+                "file_max": 2,
+                "size_max": 5120
+            },
+            {
+                "id_docs": "5",
+                "nama_dokumen": "Bukti Bayar Premi ",
+                "mandatory": 0,
+                "list_file": [{}],
+                "padleft_filename": "C22020000044",
+                "brisurf_key_GetDigitalDoc": null,
+                "file_max": 2,
+                "size_max": 5120
+            },
+            {
+                "id_docs": "6",
+                "nama_dokumen": "Dokumen Lainnya ",
+                "mandatory": 0,
+                "list_file": [{}],
+                "padleft_filename": "C22020000044",
+                "brisurf_key_GetDigitalDoc": null,
+                "file_max": 2,
+                "size_max": 5120
+            }
+        ]
+    },
+    "ResponseException": ""
+}

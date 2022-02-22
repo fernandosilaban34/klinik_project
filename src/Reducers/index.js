@@ -1,16 +1,20 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import DataPasien from './DataPasien';
-import UpdateDataPasien from './UpdateDataPasien';
-import InputDataPasien from './InputDataPasien';
+import GetDataClaim from './GetDataClaim';
+import ShowModal from './ShowModal';
+import ValidasiDeleteFile from './ValidasiDeleteFile';
+import UploadFile from './UploadFile';
+import DeleteClaimFIle from './DeleteClaimFIle';
 
 
 
 const reducers = combineReducers({
     routing: routerReducer,
-    dataPasien: DataPasien,
-    responseUpdate: UpdateDataPasien,
-    resposeInsert: InputDataPasien
+    dataClaim: GetDataClaim,
+    showModal: ShowModal,
+    uploadFile: UploadFile,
+    validasiFile: ValidasiDeleteFile,
+    deteleClaimFile : DeleteClaimFIle
 });
 
 export default reducers;
