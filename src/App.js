@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import {
   BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import configureStore from './Store/index';
 import routes from "./routes";
 const store = configureStore();

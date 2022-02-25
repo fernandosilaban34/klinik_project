@@ -5,7 +5,9 @@ import { Redirect } from 'react-router-dom';
 import Default from "./layout/Default";
 
 import Dashboard from "./view/Dashboard";
-import PageEnd from "./view/PageEnd";
+import GenerateQR from "./view/GenerateQR";
+import ManageData from "./view/ManageData";
+import Sidebar from "./layout/Sidebar.js"
 
 
 export default [
@@ -21,8 +23,13 @@ export default [
       component: Dashboard
     },
     {
-      path: "/selesai",
+      path: "/data-pasien",
       layout: Default,
-      component: PageEnd
+      component: ManageData
+    },
+    {
+      path: "/input-data",
+      layout: Default,
+      component: GenerateQR
     }
   ];
