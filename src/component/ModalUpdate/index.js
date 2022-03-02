@@ -25,6 +25,7 @@ function ModalUpdate(props) {
         if (dataRedux) {
             AlertRedux()
         }
+        
     }, [dataRedux]);
 
 

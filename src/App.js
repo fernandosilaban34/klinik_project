@@ -6,6 +6,7 @@ import {
 import './App.css';
 import configureStore from './Store/index';
 import routes from "./routes";
+import PDF from "./data/pdf";
 const store = configureStore();
 
 
@@ -31,6 +32,7 @@ export default () => (
               />
             );
           })}
+        <Route path="/pdf" component={PDF} />
         </div>
       </Switch>
     </Router>

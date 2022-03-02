@@ -6,11 +6,13 @@ import '../assests/style.css'
 import { LOAD_DATA_PASIEN } from '../Action';
 import ModalUpdate from '../component/ModalUpdate';
 import ModalDelete from '../component/ModalDelete';
+import ModalCetak from '../component/ModalCetak';
 
 export default function Dashboard() {
 	const dispatch = useDispatch();
 	const [modalShow, setModalShow] = React.useState(false);
 	const [modalShowDelete, setModalShowDelete] = React.useState(false);
+	const [modalShowCetak, setModalShowCetak] = React.useState(false);
 	const dataRedux = useSelector((state) => state.dataPasien)
 
 	const [dataUpdate, setdataUpdate] = React.useState();
@@ -27,6 +29,11 @@ export default function Dashboard() {
 		setModalShow(true)
 	}
 
+	function handleDidCetak(item) {
+		setdataUpdate(item)
+		setModalShowCetak(true)
+	}
+
 	const dataPasien = !dataRedux.results.data ? [{}] : dataRedux.results.data
 	console.log('data nihs', dataPasien);
 	return (
@@ -39,6 +46,11 @@ export default function Dashboard() {
 			{modalShowDelete == true ? <ModalDelete
 				show={modalShowDelete}
 				onHide={() => setModalShowDelete(false)}
+			/> : null}
+			{modalShowCetak == true ? <ModalCetak
+				show={modalShowCetak}
+				dataPasien = {dataUpdate}
+				onHide={() => setModalShowCetak(false)}
 			/> : null}
 			<Row noGutters className="page-header py-4">
 				<Card.Text sm="4" title="Add New Post" subtitle="Blog Posts" className="text-sm-left" />
@@ -113,6 +125,7 @@ export default function Dashboard() {
 													<Dropdown.Menu>
 														<Dropdown.Item href="#/action-1" onClick={() => handleDidUpdate(item)}>Edit</Dropdown.Item>
 														<Dropdown.Item href="#/action-2" onClick={() => setModalShowDelete(true)} style={{ color: 'red' }}>Delete</Dropdown.Item>
+														<Dropdown.Item href="#/action-2" onClick={() => handleDidCetak(item)} style={{ color: 'green' }}>Cetak</Dropdown.Item>
 													</Dropdown.Menu>
 												</Dropdown></td>
 											</tr>

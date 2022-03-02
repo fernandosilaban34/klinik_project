@@ -1,0 +1,43 @@
+.paper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 1070px;
+    width: 700px;
+  }
+  .header {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    border-bottom-style: solid;
+  }
+  .logo {
+    flex: 0.4;
+    flex-direction: row;
+    height: 100px;
+    border-bottom-style: solid;
+    border-width: 5px;
+  }
+  .subHeader {
+    flex: 0.6;
+    flex-direction: row;
+    height: 100px;
+    text-align: right;
+  }
+  
+  .tablePDF tr td{
+    border: 1px solid;
+  }
+
+  .tablePDF th{
+    border: 1px solid;
+  }
+  
+  .tablePDF {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 0;
+  }
