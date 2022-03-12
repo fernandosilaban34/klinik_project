@@ -26,7 +26,7 @@ const ModalCetak = (props) => {
 
     return (
         <>
-            <Modal
+            {/* <Modal
                 {...props}
                 size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
@@ -206,8 +206,163 @@ const ModalCetak = (props) => {
                         {({ toPdf }) => <Button variant="success" onClick={toPdf} options={options}>Cetak PDF</Button>}
                     </Pdf>
                 </Modal.Footer>
-            </Modal>
+            </Modal> */}
+            <Modal
+                {...props}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Footer>
+                    <div className="Post" ref={ref}>
+                        <div class="paper">
+                            <div class="header">
+                                <h5>ANTIGEN SWAB EXAMINATION CERTIFICATE
+SURAT KETERANGAN PEMERIKSAAN SWAB ANTIGEN
+</h5>
+                            </div>
+                        
+                            <table style={{ border: '1px solid' }} className='tablePDF'>
+                                <tr>
+                                    <td>
+                                        <Col>
+                                            <p style={styles.fontWeight}>Fullname</p>
+                                            <p style={styles.fontNormal}>Nama Lengkap</p>
+                                        </Col>
+                                    </td>
+                                    <td>
+                                        <p style={styles.fontValue}>{props.dataPasien.namaPasien}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <Col>
+                                            <p style={styles.fontWeight}>Date of Birth</p>
+                                            <p style={styles.fontNormal}>Tanggal Lahir</p>
+                                        </Col>
+                                    </td>
+                                    <td>
+                                        <p style={styles.fontValue}>{moment(props.dataPasien.tglLahir).format("DD-MM-YYYY")}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <Col>
+                                            <p style={styles.fontWeight}>Gender</p>
+                                            <p style={styles.fontNormal}>Jenis Kelamin</p>
+                                        </Col>
+                                    </td>
+                                    <td>
+                                        <p style={styles.fontValue}>{props.dataPasien.jenisKelamin}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <Col>
+                                            <p style={styles.fontWeight}>ID No.</p>
+                                            <p style={styles.fontNormal}>No. Identitas</p>
+                                        </Col>
+                                    </td>
+                                    <td>
+                                        <p style={styles.fontValue}>{props.dataPasien.NIK}</p>
+                                    </td>
+                                </tr>
+                                </table>
+                                <div className='text'>
+                                    <h6 style={{fontWeight: 'bold'}}>Based on the test conducted on (attached result):</h6>
+                                <p style={{ fontSize: 12}}>Berdasarkan hasil pemeriksaan yang telah dilaksanakan pada (terlampir hasil)</p>
+                               </div>
+                            <table style={{ border: '1px solid' }} className='tablePDF'>
+                                <tr>
+                                    <td>
+                                        <Col>
+                                            <p style={styles.fontWeight}>Date of Examination</p>
+                                            <p style={styles.fontNormal}>Tanggal Pemeriksaan</p>
+                                        </Col>
+                                    </td>
+                                    <td>
+                                        <p style={styles.fontValue}>{moment(props.dataPasien.tglPemeriksaan).format("DD MMMM YYYY")}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style={styles.abuAbu2}>
+                                        <Col>
+                                            <p style={styles.fontWeight}>Time of Sampling</p>
+                                            <p style={styles.fontNormal}>Waktu pengambilan sampel</p>
+                                        </Col>
+                                    </td>
+                                    <td>
+                                        <p style={styles.fontValue}>{props.dataPasien.waktuPemeriksaan}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style={styles.abuAbu2}>
+                                        <Col>
+                                            <p style={styles.fontWeight}>Type of Examination</p>
+                                            <p style={styles.fontNormal}>Jenis Pemeriksaan</p>
+                                        </Col>
+                                    </td>
+                                    <td>
+                                        <p style={styles.fontValue}>{props.dataPasien.tipePemeriksaan}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style={styles.abuAbu2}>
+                                        <Col>
+                                            <p style={styles.fontWeight}>Result</p>
+                                            <p style={styles.fontNormal}>Hasil</p>
+                                        </Col>
+                                    </td>
+                                    <td>
+                                        <p style={styles.fontValue}>{props.dataPasien.hasil}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style={styles.abuAbu2}>
+                                        <Col>
+                                            <p style={styles.fontWeight}>References Range</p>
+                                            <p style={styles.fontNormal}>Nilai Normal</p>
+                                        </Col>
+                                    </td>
+                                    <td>
+                                        <p style={styles.fontValue}>{props.dataPasien.nilaiNormal}</p>
+                                    </td>
+                                </tr>
+                            
+                            </table>
+                            <div className='text' style={{marginTop: 10}}>
+                                    <h6 style={{fontWeight: 'bold'}}>Conclusion:</h6>
+                                <p style={{ fontSize: 12}}>Kesimpulan:</p>
+                               </div>
 
+                            <div className='text' style={{marginTop: 10}}>
+                                    <h6 style={{fontWeight: 'bold'}}>{props.dataPasien.kesimpulanEng}</h6>
+                                <p style={{ fontSize: 12}}> {props.dataPasien.kesimpulanIna}</p>
+                               </div>
+                               <div className='text' style={{marginTop: 10}}>
+                                    <h6 style={{fontWeight: 'bold'}}>Please use this certificate as needed.</h6>
+                                <p style={{ fontSize: 12}}>Sertifikat ini dibuat sebagaimana mestinya</p>
+                               </div>
+
+                            <Row>
+                                <div style={{ width: '50%', height: 50, marginLeft: 15, marginTop: 50 }}>
+                                    <p style={styles.fontNormalVcnenter}>{props.dataPasien.kotaPemeriksaan},{moment(props.dataPasien.tglPemeriksaan).format("DD MMMM YYYY")}</p>
+                                </div>
+                                <div style={{ width: '40%', height: 50, marginLeft: 15, marginTop: 50 }}>
+                                    <p style={styles.fontNormalVcnenter}>Silahkan untuk scan barcode dibawah ini untuk melihat hasil pemeriksaan</p>
+                                    <div style={{marginLeft: 100}}>
+                                        <QRcode text="ok" />
+                                    </div>
+                                </div>
+                            </Row>
+                        </div>
+                    </div>
+                    <Button variant="secondary" onClick={props.onHide}>Close</Button>
+                    <Pdf filename="post.pdf" targetRef={ref}>
+                        {({ toPdf }) => <Button variant="success" onClick={toPdf} options={options}>Cetak PDF</Button>}
+                    </Pdf>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }
@@ -219,7 +374,7 @@ const styles = {
         alignContent: 'center'
     },
     abuAbu2: {
-        backgroundColor: '#D9E2F3',
+       
         width: '50%'
     },
     abuAbu: {
@@ -238,7 +393,12 @@ const styles = {
 
     },
     fontNormal: {
-        fontSize: 12
+        fontSize: 12,
+        fontStyle: 'italic'
+        
+    },
+    fontValue: {
+        fontSize: 12,
     },
     fontNormalVcnenter: {
         fontSize: 12,
