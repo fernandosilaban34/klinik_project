@@ -1,12 +1,15 @@
 import React from "react";
 import { Provider } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import {
   BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import configureStore from './Store/index';
 import routes from "./routes";
 import PDF from "./data/pdf";
+import Login from "./view/Login";
+import User from "./view/User";
 const store = configureStore();
 
 
@@ -28,11 +31,12 @@ export default () => (
                       <route.component {...props} />
                     </route.layout>
                   );
-                })}
+                })} 
               />
             );
           })}
-        <Route path="/pdf" component={PDF} />
+        <Route path="/login" component={Login} exact/>
+        <Route path="/user/:noKtp" component={User}/>
         </div>
       </Switch>
     </Router>

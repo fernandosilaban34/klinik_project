@@ -130,7 +130,7 @@
     border-spacing: 1;
     border-collapse: collapse;
     background: white;
-    /* border-radius: 10px; */
+    border-radius: 4px;
     overflow: hidden;
     width: 100%;
     margin: 0 auto;

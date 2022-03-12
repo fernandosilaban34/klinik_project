@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Card, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector, connect } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import * as moment from 'moment'
 import { INPUT_DATA_PASIEN } from '../Action';
 
 const GenerateQR = (props) => {
+  let history = useHistory();
   const dispatch = useDispatch();
   const [results, setResult] = React.useState({
     IDPasien: '',
@@ -33,7 +35,10 @@ const GenerateQR = (props) => {
     dispatch(INPUT_DATA_PASIEN(resultNew));
 
     
-    alert(dataRedux)
+    alert(dataRedux.results.massage)
+    history.push('/dashboard')
+    window.location.reload();
+    
   }
 
 

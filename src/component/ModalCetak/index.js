@@ -34,8 +34,8 @@ const ModalCetak = (props) => {
             >
                 <Modal.Footer>
                     <div className="Post" ref={ref}>
-                        <div class="paper">
-                            <div class="header">
+                        <div className="paper">
+                            <div className="header">
                                 <div style={{ width: '50%' }}>
                                     <img style={{ height: 200, position: 'absolute', top: 5 }} src={Logo} />
                                 </div>

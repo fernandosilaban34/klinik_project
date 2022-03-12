@@ -34,6 +34,11 @@ export default function Dashboard() {
 		setModalShowCetak(true)
 	}
 
+	function handleDidDelete(item) {
+		setdataUpdate(item)
+		setModalShowDelete(true)
+	}
+
 	const dataPasien = !dataRedux.results.data ? [{}] : dataRedux.results.data
 	console.log('data nihs', dataPasien);
 	return (
@@ -44,12 +49,13 @@ export default function Dashboard() {
 				data={dataUpdate}
 			/> : null}
 			{modalShowDelete == true ? <ModalDelete
+				data={dataUpdate}
 				show={modalShowDelete}
 				onHide={() => setModalShowDelete(false)}
 			/> : null}
 			{modalShowCetak == true ? <ModalCetak
 				show={modalShowCetak}
-				dataPasien = {dataUpdate}
+				dataPasien={dataUpdate}
 				onHide={() => setModalShowCetak(false)}
 			/> : null}
 			<Row noGutters className="page-header py-4">
@@ -64,7 +70,7 @@ export default function Dashboard() {
 						style={{ backgroundColor: '#FFF' }}
 					/>
 				</InputGroup>
-				<Button variant="primary">Cari</Button>
+				<Button variant="primary" style={{width: 80}}>Cari</Button>
 			</Row>
 			<Row>
 				<Col>
@@ -123,9 +129,9 @@ export default function Dashboard() {
 													</Dropdown.Toggle>
 
 													<Dropdown.Menu>
-														<Dropdown.Item href="#/action-1" onClick={() => handleDidUpdate(item)}>Edit</Dropdown.Item>
-														<Dropdown.Item href="#/action-2" onClick={() => setModalShowDelete(true)} style={{ color: 'red' }}>Delete</Dropdown.Item>
-														<Dropdown.Item href="#/action-2" onClick={() => handleDidCetak(item)} style={{ color: 'green' }}>Cetak</Dropdown.Item>
+														<Dropdown.Item onClick={() => handleDidUpdate(item)}>Edit</Dropdown.Item>
+														<Dropdown.Item onClick={() => handleDidDelete(item)} style={{ color: 'red' }}>Delete</Dropdown.Item>
+														<Dropdown.Item onClick={() => handleDidCetak(item)} style={{ color: 'green' }}>Cetak</Dropdown.Item>
 													</Dropdown.Menu>
 												</Dropdown></td>
 											</tr>

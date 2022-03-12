@@ -17,10 +17,10 @@ const PDF = (props) => {
     <>
       <div className="Post" ref={ref}>
         <div>
-          <div class="paper">
-            <div class="header">
-              <div class="logo">logo</div>
-              <div class="subHeader">subHeader</div>
+          <div className="paper">
+            <div className="header">
+              <div className="logo">logo</div>
+              <div className="subHeader">subHeader</div>
             </div>
             <table style={{ border: '1px solid' }} className='tablePDF'>
               <tr>
@@ -139,11 +139,11 @@ const PDF = (props) => {
                 <td>Griffin</td>
               </tr>
             </table>
-            <div class="letterSection">
+            <div className="letterSection">
               <div></div>
             </div>
 
-            <div class="signatureSection">
+            <div className="signatureSection">
               <QRcode text="ok" />
             </div>
           </div>

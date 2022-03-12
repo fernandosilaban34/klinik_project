@@ -2,19 +2,18 @@ import axios from "axios";
 import { ON_HIDE_LOADER } from "../Constants/ActionTypes";
 
 
-export const DELETE_CLAIM_FILE = (idFileClaim, fileName, fileUrl) => {
+export const DELETE_PASIEN = (IDPasien) => {
     let responseErr = {
         ResponseCode: 'error',
         ResponseException: 'Maaf, Terjadi Kesalahan'
     }
     return async dispatch => {
-        await axios.post(`http://10.28.2.101:5556/deletefileclaim`, {
-            idFileClaim: idFileClaim,
-            fileName: fileName,
-            fileURL: fileUrl
+        await axios.post(`http://8.215.37.21:5021/globaldoctor/pasien/deleteDataPasien`, {
+            IDPasien: IDPasien
         }).then(response => {
+            console.log(response.data);
             dispatch({
-                type: "DELETE_CLAIM_FILE",
+                type: "DELETE_PASIEN",
                 payload: response.data
             });
     
@@ -29,7 +28,7 @@ export const DELETE_CLAIM_FILE = (idFileClaim, fileName, fileUrl) => {
             });
         }).catch(err => {
             dispatch({
-                type: "DELETE_CLAIM_FILE",
+                type: "DELETE_PASIEN",
                 payload: responseErr
             });
         })

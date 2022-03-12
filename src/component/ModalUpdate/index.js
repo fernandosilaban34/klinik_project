@@ -77,11 +77,10 @@ function ModalUpdate(props) {
                             <Form.Label>ID Pasien</Form.Label>
                             <Form.Control
                                 type="number"
-                                placeholder="Masukan ID Pasien"
                                 name="IDPasien"
                                 style={{ backgroundColor: '#EEF0F3' }}
                                 value={results.IDPasien}
-                                onChange={handleInputChange}
+                                disabled
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
