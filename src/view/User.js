@@ -1,8 +1,16 @@
 import React, { useEffect } from 'react'
 import { Form, Button, Container, InputGroup, FormControl } from 'react-bootstrap'
 import ModalCetak from '../component/ModalCetak';
+import { useDispatch, useSelector, connect } from 'react-redux';
+import { VALIDATE_PASIEN } from '../Action';
+import { useIsMount } from '../costum-hooks/useIsMount';
 
 export default function User(props) {
+
+    const isMount = useIsMount();
+    const dispatch = useDispatch();
+    const dataRedux = useSelector((state) => state.validateUser)
+
     let dataTemp = [
         {
             "IDPasien": 133,
@@ -22,17 +30,34 @@ export default function User(props) {
     ]
 
     const [modalShowCetak, setModalShowCetak] = React.useState(false);
-    const [dataUpdate, setdataUpdate] = React.useState();
+    const [dataUpdate, setdataUpdate] = React.useState(dataRedux);
     const [tglLahir, setTglLahir] = React.useState();
+    const [nik, setNik] = React.useState('');
     const [data, setdata] = React.useState(dataTemp);
 
+
+    console.log('dataReduxSebelum', dataRedux);
     useEffect(() => {
-    }, [])
+        if (!isMount) {
+            validationData()
+        }
+    }, [dataRedux])
 
 
-    function handleDidCetak(item) {
-        setdataUpdate(item)
-        setModalShowCetak(true)
+    const handleDidCetak = () => {
+        dispatch(VALIDATE_PASIEN(props.match.params.noKtp, tglLahir))
+        validationData()
+        // setdataUpdate(item)
+
+    }
+
+    function validationData() {
+        if (dataRedux.results.code == 200) {
+            setdataUpdate(dataRedux.results.data[0])
+            setModalShowCetak(true)
+        } else {
+            alert('tanggal lahir salah, harap cek kembali')
+        }
     }
 
     function handleChangeTgl(e) {
@@ -48,28 +73,25 @@ export default function User(props) {
                 onHide={() => setModalShowCetak(false)}
             /> : null}
             <h1 style={{ textAlign: 'center', marginBottom: 50 }}></h1>
-            {/* <h2>{props.match.params.noKtp}</h2> */}
             <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', height: '100%', borderRadius: 10 }}>
                 <div style={{ backgroundColor: '#198754', padding: 50, borderRadius: 10, boxShadow: "5px 5px 5px #9E9E9E" }}>
-                    <Form.Label className='pb-4 text-light' style={{ textAlign: 'center' }}><h4 style={{ fontWeight: 'bold' }}>Masukan Tanggal Lahir</h4></Form.Label>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <InputGroup className="mb-3">
-                            <InputGroup.Text id="basic-addon1"><i className="bi bi-calendar-date"></i></InputGroup.Text>
-                            <FormControl
-                                placeholder="Username"
-                                aria-label="Username"
-                                aria-describedby="basic-addon1"
-                                type="date"
-                                value={tglLahir}
-                                onChange={handleChangeTgl}
-                            />
-                        </InputGroup>
-                    </Form.Group>
+                    <h1 className='pb-4 text-light' style={{ textAlign: 'center' }}><h4 style={{ fontWeight: 'bold' }}>Masukan Tanggal Lahir</h4></h1>
+                    <InputGroup className="mb-3">
+                        <InputGroup.Text id="basic-addon1"><i className="bi bi-calendar-date"></i></InputGroup.Text>
+                        <FormControl
+                            placeholder="Username"
+                            aria-label="Username"
+                            aria-describedby="basic-addon1"
+                            type="date"
+                            value={tglLahir}
+                            onChange={handleChangeTgl}
+                        />
+                    </InputGroup>
                     {/* <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" />
           </Form.Group> */}
-                    <Button variant="primary" type="submit" style={{ width: '100%', marginTop: 15 }} onClick={() => handleDidCetak(data)}>
+                    <Button variant="primary" type="submit" style={{ width: '100%', marginTop: 15 }} onClick={(e) => handleDidCetak(e)}>
                         Submit
                     </Button>
                 </div>
