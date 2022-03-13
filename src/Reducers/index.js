@@ -5,6 +5,7 @@ import UpdateDataPasien from './UpdateDataPasien';
 import InputDataPasien from './InputDataPasien';
 import DeletePasien from './DeletePasien';
 import ValidateUser from './ValidateUser';
+import Loggin from './Loggin';
 
 
 
@@ -14,7 +15,8 @@ const reducers = combineReducers({
     responseUpdate: UpdateDataPasien,
     resposeInsert: InputDataPasien,
     responseDelete: DeletePasien,
-    validateUser: ValidateUser
+    validateUser: ValidateUser,
+    login: Loggin
 });
 
 export default reducers;

@@ -4,6 +4,7 @@ import ModalCetak from '../component/ModalCetak';
 import { useDispatch, useSelector, connect } from 'react-redux';
 import { VALIDATE_PASIEN } from '../Action';
 import { useIsMount } from '../costum-hooks/useIsMount';
+import axios from 'axios';
 
 export default function User(props) {
 
@@ -38,17 +39,26 @@ export default function User(props) {
 
     console.log('dataReduxSebelum', dataRedux);
     useEffect(() => {
-        if (!isMount) {
-            validationData()
-        }
-    }, [dataRedux])
+
+    }, [dataUpdate])
 
 
-    const handleDidCetak = () => {
-        dispatch(VALIDATE_PASIEN(props.match.params.noKtp, tglLahir))
-        validationData()
+    async function handleDidCetak() {
+        await axios.post(`http://8.215.37.21:5021/globaldoctor/pasien/validatePasien`, {
+            nik: props.match.params.noKtp,
+            tglLahir: tglLahir
+        }).then(response => {
+            console.log(response.data)
+            if (response.data.code == 200) {
+                setdataUpdate(response.data.data[0])
+                setModalShowCetak(true)
+            } else {
+                alert(response.data.message)
+            }
+        }).catch(err => {
+            alert(err)
+        })
         // setdataUpdate(item)
-
     }
 
     function validationData() {

@@ -8,7 +8,7 @@ export const LOGGIN_IN = (username, password) => {
         ResponseException: 'Maaf, Terjadi Kesalahan'
     }
     return async dispatch => {
-        await axios.post(`http://8.215.37.21:5021/globaldoctor/pasien/deleteDataPasien`, {
+        await axios.post(`http://8.215.37.21:5021/globaldoctor/user/login`, {
             username, 
             password
         }).then(response => {
