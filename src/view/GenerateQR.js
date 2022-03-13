@@ -10,15 +10,18 @@ const GenerateQR = (props) => {
   const dispatch = useDispatch();
   const [results, setResult] = React.useState({
     IDPasien: '',
-    tglPenerimaan: '',
-    waktuPenerimaan: '',
+    waktuPengambilanSampel: '',
+    waktuPemeriksaan: '',
     tglPemeriksaan: '',
-    pengirim: '',
     namaPasien: '',
     NIK: '',
     tglLahir: '',
-    jenisSpecimen: '',
-    pemeriksaan: ''
+    jenisKelamin: '',
+    tipePemeriksaan: '',
+    hasilPemeriksaan: '',
+    nilaiNormal: '',
+    kesimpulanEng: '',
+    kesimpulanIna: ''
   });
   const dataRedux = useSelector((state) => state.resposeInsert)
 
@@ -61,7 +64,7 @@ const GenerateQR = (props) => {
                 value={results.IDPasien}
                 onChange={handleInputChange}
               />
-            </Form.Group>
+              </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>NIK</Form.Label>
               <Form.Control
@@ -72,41 +75,62 @@ const GenerateQR = (props) => {
                 style={{ backgroundColor: '#EEF0F3' }}
                 onChange={handleInputChange}
               />
+                    
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Jenis Kelamin</Form.Label>
+              <Form.Control
+                type="text"
+                name='jenisKelamin'
+                value={results.jenisKelamin}
+                placeholder="Masukan Jenis Kelamin"
+                style={{ backgroundColor: '#EEF0F3' }}
+                onChange={handleInputChange}
+              />
             </Form.Group>
             <Form.Text className="text-muted mb-4 mt-4">
               Keterangan Data
             </Form.Text>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Tanggal Penerimaan</Form.Label>
+              <Form.Label> Waktu Pengambilan Sampel</Form.Label>
               <Form.Control
-                name='tglPenerimaan'
+                name='waktuPengambilanSampel'
+                type="time"
+                value= {results.waktuPengambilanSampel}
+                style={{ backgroundColor: '#EEF0F3' }}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Tipe Pemeriksaan</Form.Label>
+              <Form.Control
+                type="text"
+                name='tipePemeriksaan'
+                placeholder="Masukan Tipe Pemeriksaann"
+                value={results.tipePemeriksaan}
+                style={{backgroundColor: '#EEF0F3' }}
+                onChange={handleInputChange} />
+            </Form.Group>
+          
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Tanggal Pemeriksaan</Form.Label>
+              <Form.Control
                 type="date"
-                value= {results.tglPenerimaan}
+                name='tglPemeriksaan'
+                value={results.tglPemeriksaan}
                 style={{ backgroundColor: '#EEF0F3' }}
-                onChange={handleInputChange}
-              />
+                onChange={handleInputChange} />
             </Form.Group>
+          
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Pengirim</Form.Label>
+              <Form.Label>Nilai Normal</Form.Label>
               <Form.Control
                 type="text"
-                name='pengirim'
-                value={results.pengirim}
-                placeholder="Masukan Pengirim"
-                style={{ backgroundColor: '#EEF0F3' }}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Jenis Specimen</Form.Label>
-              <Form.Control
-                type="text"
-                name='jenisSpecimen'
-                value={results.jenisSpecimen}
-                placeholder="Masukan Jenis Specimen"
-                style={{ backgroundColor: '#EEF0F3' }}
-                onChange={handleInputChange}
-              />
+                name='nilaiNormal'
+                placeholder="Masukan Nilai Normal"
+                value={results.nilaiNormal}
+                style={{backgroundColor: '#EEF0F3' }}
+                onChange={handleInputChange} />
             </Form.Group>
           </Col>
           <Col>
@@ -135,34 +159,48 @@ const GenerateQR = (props) => {
               <div>&nbsp;</div>
             </Form.Text>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Waktu Penerimaan</Form.Label>
+              <Form.Label>Waktu Pemeriksaan</Form.Label>
               <Form.Control
                 type="time"
-                name="waktuPenerimaan"
-                value={results.waktuPenerimaan}
-                placeholder="Masukan Waktu Penerimaan"
+                name="waktuPemeriksaan"
+                value={results.waktuPemeriksaan}
+                placeholder="Masukan Waktu Pemeriksaan"
                 style={{ backgroundColor: '#EEF0F3' }}
                 onChange={handleInputChange} />
             </Form.Group>
+            
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Tanggal Pemeriksaan</Form.Label>
-              <Form.Control
-                type="date"
-                name='tglPemeriksaan'
-                value={results.tglPemeriksaan}
-                style={{ backgroundColor: '#EEF0F3' }}
-                onChange={handleInputChange} />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Pemeriksaan</Form.Label>
+              <Form.Label>Hasil Pemeriksaan</Form.Label>
               <Form.Control
                 type="text"
-                name='pemeriksaan'
-                placeholder="Masukan Pemeriksaann"
-                value={results.pemeriksaan}
+                name='hasilPemeriksaan'
+                placeholder="Masukan Hasil Pemeriksaan"
+                value={results.hasilPemeriksaan}
                 style={{backgroundColor: '#EEF0F3' }}
                 onChange={handleInputChange} />
             </Form.Group>
+           
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Conclusion in English</Form.Label>
+              <Form.Control
+                type="text"
+                name='kesimpulanEng'
+                placeholder="Conclusion"
+                value={results.kesimpulanEng}
+                style={{backgroundColor: '#EEF0F3' }}
+                onChange={handleInputChange} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>kesimpulan dalam Indonesia</Form.Label>
+              <Form.Control
+                type="text"
+                name='kesimpulanIna'
+                placeholder="Kesimpulan"
+                value={results.kesimpulanIna}
+                style={{backgroundColor: '#EEF0F3' }}
+                onChange={handleInputChange} />
+            </Form.Group>
+            
             <Button style={{marginLeft:'90%'}} variant="primary" type="submit" onClick={handleOnClick}>
               Submit
             </Button>
