@@ -8,15 +8,14 @@ function ModalUpdate(props) {
     const dispatch = useDispatch();
     const [results, setResult] = React.useState({
         IDPasien: '',
-        tglPenerimaan: '',
-        waktuPenerimaan: '',
-        tglPemeriksaan: '',
-        pengirim: '',
         namaPasien: '',
-        NIK: '',
-        tglLahir: '',
-        jenisSpecimen: '',
-        pemeriksaan: ''
+        tglLahir:'',
+        jenisKelamin :'',
+        NIK :'', 
+        hasilPemeriksaan :'',
+        nilaiNormal:'',
+        kesimpulanEng :'',
+        kesimpulanIna:''
     });
     const dataRedux = useSelector((state) => state.responseUpdate)
     useEffect(() => {
@@ -92,40 +91,30 @@ function ModalUpdate(props) {
                                 value={results.NIK}
                                 style={{ backgroundColor: '#EEF0F3' }}
                                 onChange={handleInputChange}
-                            />
+                            /> 
+                           
                         </Form.Group>
                         <Form.Text className="text-muted mb-4 mt-4">
                             Keterangan Data
                         </Form.Text>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Tanggal Penerimaan</Form.Label>
-                            <Form.Control
-                                name='tglPenerimaan'
-                                type="date"
-                                value={moment(results.tglPenerimaan).format("YYYY-MM-DD")}
-                                placeholder="Masukan Waktu Penerimaan"
-                                style={{ backgroundColor: '#EEF0F3' }}
-                                onChange={handleInputChange}
-                            />
-                        </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Pengirim</Form.Label>
+                            <Form.Label>jenisKelamin</Form.Label>
                             <Form.Control
                                 type="text"
-                                name='pengirim'
-                                value={results.pengirim}
-                                placeholder="Masukan Pengirim"
+                                name='jenisKelamin'
+                                value={results.jenisKelamin}
+                                placeholder="Masukan Jenis Kelamin"
                                 style={{ backgroundColor: '#EEF0F3' }}
                                 onChange={handleInputChange}
-                            />
+                            /> 
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Jenis Specimen</Form.Label>
+                            <Form.Label>Hasil Pemeriksaan</Form.Label>
                             <Form.Control
                                 type="text"
-                                name='jenisSpecimen'
-                                value={results.jenisSpecimen}
-                                placeholder="Masukan Jenis Specimen"
+                                name='hasilPemeriksaan'
+                                value={results.hasilPemeriksaan}
+                                placeholder="Masukan Hasil Pemeriksaan"
                                 style={{ backgroundColor: '#EEF0F3' }}
                                 onChange={handleInputChange}
                             />
@@ -156,31 +145,32 @@ function ModalUpdate(props) {
                         <Form.Text className="text-muted mb-4">
                             <div>&nbsp;</div>
                         </Form.Text>
+                            
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Waktu Penerimaan</Form.Label>
-                            <Form.Control
-                                type="time"
-                                name="waktuPenerimaan"
-                                value={results.waktuPenerimaan}
-                                placeholder="Masukan Waktu Penerimaan"
-                                style={{ backgroundColor: '#EEF0F3' }}
-                                onChange={handleInputChange} />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Tanggal Pemeriksaan</Form.Label>
-                            <Form.Control
-                                type="date"
-                                name='tglPemeriksaan'
-                                value={moment(results.tglPemeriksaan).format(("YYYY-MM-DD"))}
-                                style={{ backgroundColor: '#EEF0F3' }}
-                                onChange={handleInputChange} />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Pemeriksaan</Form.Label>
+                            <Form.Label>Nilai Normal</Form.Label>
                             <Form.Control
                                 type="text"
-                                name='pemeriksaan'
-                                placeholder="Masukan Pemeriksaann"
+                                name="nilaiNormal"
+                                value={results.nilaiNormal}
+                                placeholder="Masukan Nilai Normal"
+                                style={{ backgroundColor: '#EEF0F3' }}
+                                onChange={handleInputChange} />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Kesimpulan Eng</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name='kesimpulanEng'
+                                value={results.kesimpulanEng}
+                                style={{ backgroundColor: '#EEF0F3' }}
+                                onChange={handleInputChange} />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>kesimpulan Ina</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name='kesimpulanIna'
+                                placeholder="Masukan kesimpulan Ina"
                                 value={results.pemeriksaan}
                                 style={{ backgroundColor: '#EEF0F3' }}
                                 onChange={handleInputChange} />
