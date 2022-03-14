@@ -20,6 +20,7 @@ const GenerateQR = (props) => {
     tipePemeriksaan: '',
     hasilPemeriksaan: '',
     nilaiNormal: '',
+    pemeriksaan: '',
     kesimpulanEng: '',
     kesimpulanIna: ''
   });
@@ -158,6 +159,13 @@ const GenerateQR = (props) => {
             <Form.Text className="text-muted mb-4">
               <div>&nbsp;</div>
             </Form.Text>
+            <Form.Text className="text-muted mb-4 mt-4">
+            &nbsp;
+            </Form.Text>
+              <Form.Text className="text-muted mb-4 mt-4">
+              &nbsp;  
+            </Form.Text>
+            
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Waktu Pemeriksaan</Form.Label>
               <Form.Control

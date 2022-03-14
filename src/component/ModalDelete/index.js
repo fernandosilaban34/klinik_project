@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import { useDispatch, useSelector, connect } from 'react-redux';
 import { DELETE_PASIEN, LOAD_DATA_PASIEN } from '../../Action';
@@ -9,13 +10,8 @@ function ModalDelete(props) {
     const dataRedux = useSelector((state) => state.responseUpdate)
 
     useEffect(() => {
-        AlertDelete()
-
-        if (dataRedux) {
-            AlertDelete()
-        }
     }, [dataRedux])
-    
+
     function AlertDelete() {
         if (dataRedux.results.code == 200) {
             alert(dataRedux.results.message)
@@ -23,9 +19,20 @@ function ModalDelete(props) {
         }
     }
 
-    function HandleDeletePasien() {
-        dispatch(DELETE_PASIEN(props.data.IDPasien));
-        dispatch(LOAD_DATA_PASIEN());
+    async function HandleDeletePasien() {
+        await axios.post(`http://8.215.37.21:5021/globaldoctor/pasien/deleteDataPasien`, {
+            IDPasien : props.data.IDPasien
+        }).then(response => {
+            if (response.data.code == 200) {
+                alert(response.data.message)
+                dispatch(LOAD_DATA_PASIEN())
+            } else {
+                alert(response.data.message)
+            }
+        }).catch(err => {
+            alert(err)
+        })
+        // setdataUpdate(item)
     }
 
     return (

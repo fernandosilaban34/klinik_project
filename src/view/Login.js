@@ -33,7 +33,7 @@ const Login = () => {
             alert(response.data.message)
           }
         }).catch(err => {
-          alert(err)
+          alert('Harap masukan username/password')
       })
   } 
 
@@ -68,6 +68,7 @@ const Login = () => {
               <InputGroup.Text id="basic-addon1"><i className="bi bi-lock"></i></InputGroup.Text>
               <FormControl
                 placeholder="Password"
+                type='password'
                 aria-label="Password"
                 aria-describedby="basic-addon1"
                 value={password}

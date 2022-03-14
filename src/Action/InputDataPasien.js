@@ -4,15 +4,19 @@ export const INPUT_DATA_PASIEN = (results) => {
     return async dispatch => {
         const uri = await axios.post(`http://8.215.37.21:5021/globaldoctor/pasien/addDataPasien`, {
             IDPasien: `${results.IDPasien}`,
-            tglPenerimaan: `${results.tglPenerimaan}`,
-            waktuPenerimaan: `${results.waktuPenerimaan}`,
+            waktuPengambilanSampel: `${results.waktuPengambilanSampel}`,
+            waktuPemeriksaan: `${results.waktuPemeriksaan}`,
             tglPemeriksaan: `${results.tglPemeriksaan}`,
-            pengirim: `${results.pengirim}`,
             namaPasien: `${results.namaPasien}`,
             NIK: `${results.NIK}`,
             tglLahir: `${results.tglLahir}`,
-            jenisSpecimen: `${results.jenisSpecimen}`,
-            pemeriksaan: `${results.pemeriksaan}`
+            jenisKelamin: `${results.jenisKelamin}`,
+            tipePemeriksaan: `${results.tipePemeriksaan}`,
+            hasilPemeriksaan: `${results.hasilPemeriksaan}`,
+            nilaiNormal: `${results.nilaiNormal}`,
+            pemeriksaan: `${results.pemeriksaan}`,
+            kesimpulanEng: `${results.kesimpulanEng}`,
+            kesimpulanIn: `${results.kesimpulanIna}`
         })
 
 

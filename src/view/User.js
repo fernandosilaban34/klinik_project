@@ -82,10 +82,10 @@ export default function User(props) {
                 dataPasien={dataUpdate}
                 onHide={() => setModalShowCetak(false)}
             /> : null}
-            <h1 style={{ textAlign: 'center', marginBottom: 50 }}></h1>
+            <h1 style={{ textAlign: 'center', marginBottom: 50,fontSize:18, fontWeight:'bold' }}>FORM HASIL PEMERIKSA</h1>
             <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', height: '100%', borderRadius: 10 }}>
                 <div style={{ backgroundColor: '#198754', padding: 50, borderRadius: 10, boxShadow: "5px 5px 5px #9E9E9E" }}>
-                    <h1 className='pb-4 text-light' style={{ textAlign: 'center' }}><h4 style={{ fontWeight: 'bold' }}>Masukan Tanggal Lahir</h4></h1>
+                    <h1 className='pb-4 text-light' style={{ textAlign: 'center',  }}><h4 style={{ fontWeight: 'bold', fontSize:18 }}>Masukan Tanggal Lahir Anda</h4></h1>
                     <InputGroup className="mb-3">
                         <InputGroup.Text id="basic-addon1"><i className="bi bi-calendar-date"></i></InputGroup.Text>
                         <FormControl
