@@ -14,9 +14,8 @@ export const INPUT_DATA_PASIEN = (results) => {
             tipePemeriksaan: `${results.tipePemeriksaan}`,
             hasilPemeriksaan: `${results.hasilPemeriksaan}`,
             nilaiNormal: `${results.nilaiNormal}`,
-            pemeriksaan: `${results.pemeriksaan}`,
             kesimpulanEng: `${results.kesimpulanEng}`,
-            kesimpulanIn: `${results.kesimpulanIna}`
+            kesimpulanIna: `${results.kesimpulanIna}`
         })
 
 

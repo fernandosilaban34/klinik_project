@@ -317,7 +317,7 @@ const ModalCetak = (props) => {
                                         </Col>
                                     </td>
                                     <td>
-                                        <p style={styles.fontValue}>{props.dataPasien.hasil}</p>
+                                        <p style={styles.fontValue}>{props.dataPasien.hasilPemeriksaan}</p>
                                     </td>
                                 </tr>
                                 <tr>

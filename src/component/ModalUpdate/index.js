@@ -171,7 +171,7 @@ function ModalUpdate(props) {
                                 type="text"
                                 name='kesimpulanIna'
                                 placeholder="Masukan kesimpulan Ina"
-                                value={results.pemeriksaan}
+                                value={results.kesimpulanIna}
                                 style={{ backgroundColor: '#EEF0F3' }}
                                 onChange={handleInputChange} />
                         </Form.Group>
