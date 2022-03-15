@@ -16,7 +16,7 @@ const ModalCetak = (props) => {
     };
 
 
-    let url = 'http//:localhost:3000/user/' + props.dataPasien.NIK
+    let url = 'http//:8.215.37.21:5022/user/' + props.dataPasien.NIK
     let filename = props.dataPasien.NIK+'.pdf'
     console.log(props.dataPasien, 'dataPasien');
 
