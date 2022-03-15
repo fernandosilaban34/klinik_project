@@ -120,8 +120,7 @@ const GenerateQR = (props) => {
                 onChange={handleInputChange} /> */}
               <Form.Select aria-label="Default select example" onChange={handleInputChange} name='tipePemeriksaan'>
                 <option>Pilih Tipe Pemeriksaan</option>
-                <option value="SWAB">SWAB</option>
-                <option value="ANTIGEN">ANTIGEN</option>
+                <option value="IMMUNOLOGY - Antigen COVID-19">IMMUNOLOGY - Antigen COVID-19</option>
               </Form.Select>
             </Form.Group>
 
@@ -137,13 +136,18 @@ const GenerateQR = (props) => {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Nilai Normal</Form.Label>
-              <Form.Control
+              {/* <Form.Control
                 type="text"
                 name='nilaiNormal'
                 placeholder="Masukan Nilai Normal"
                 value={results.nilaiNormal}
                 style={{ backgroundColor: '#EEF0F3' }}
-                onChange={handleInputChange} />
+                onChange={handleInputChange} /> */}
+                <Form.Select aria-label="Default select example" onChange={handleInputChange} name='nilaiNormal'>
+                <option>Pilih Nilai Normal</option>
+                <option value="NEGATIF">NEGATIF</option>
+                <option value="POSITIF">POSITIF</option>
+              </Form.Select>
             </Form.Group>
           </Col>
           <Col>

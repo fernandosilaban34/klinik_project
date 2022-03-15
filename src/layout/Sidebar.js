@@ -15,8 +15,8 @@ const Sidebar = () => {
     <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial'}}>
       <CDBSidebar textColor="#fff" backgroundColor="#00705A">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-          <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
-            ECONOLAB
+          <a href="/" className="text-decoration-none" style={{ color: 'inherit', fontSize:15}}>
+            GLOBAL DOCTOR
           </a>
         </CDBSidebarHeader>
 

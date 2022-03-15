@@ -47,7 +47,7 @@ const Login = () => {
 
   return (
     <Container style={{ paddingTop: 10, paddingBottom: 10, paddingTop: '10%' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: 50 }}>ECONOLAB</h1>
+      <h1 style={{ textAlign: 'center', marginBottom: 50 }}>GLOBAL DOCTOR</h1>
       <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', height: '100%', borderRadius: 10 }}>
         <div style={{ backgroundColor: '#198754', padding: 50, borderRadius: 10, boxShadow: "5px 5px 5px #9E9E9E" }}>
           <Form.Label className='pb-4 text-light' style={{ textAlign: 'center' }}><h4 style={{ fontWeight: 'bold' }}>Login</h4></Form.Label>
