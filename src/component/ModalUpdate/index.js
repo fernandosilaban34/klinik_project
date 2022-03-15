@@ -9,13 +9,13 @@ function ModalUpdate(props) {
     const [results, setResult] = React.useState({
         IDPasien: '',
         namaPasien: '',
-        tglLahir:'',
-        jenisKelamin :'',
-        NIK :'', 
-        hasilPemeriksaan :'',
-        nilaiNormal:'',
-        kesimpulanEng :'',
-        kesimpulanIna:''
+        tglLahir: '',
+        jenisKelamin: '',
+        NIK: '',
+        hasilPemeriksaan: '',
+        nilaiNormal: '',
+        kesimpulanEng: '',
+        kesimpulanIna: ''
     });
     const dataRedux = useSelector((state) => state.responseUpdate)
     useEffect(() => {
@@ -24,7 +24,7 @@ function ModalUpdate(props) {
         if (dataRedux) {
             AlertRedux()
         }
-        
+
     }, [dataRedux]);
 
 
@@ -91,33 +91,43 @@ function ModalUpdate(props) {
                                 value={results.NIK}
                                 style={{ backgroundColor: '#EEF0F3' }}
                                 onChange={handleInputChange}
-                            /> 
-                           
+                            />
+
                         </Form.Group>
                         <Form.Text className="text-muted mb-4 mt-4">
                             Keterangan Data
                         </Form.Text>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>jenisKelamin</Form.Label>
-                            <Form.Control
+                            <Form.Select aria-label="Default select example" name='jenisKelamin' onChange={handleInputChange}>
+                                <option>Pilih Jenis Kelamin</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </Form.Select>
+                            {/* <Form.Control
                                 type="text"
                                 name='jenisKelamin'
                                 value={results.jenisKelamin}
                                 placeholder="Masukan Jenis Kelamin"
                                 style={{ backgroundColor: '#EEF0F3' }}
                                 onChange={handleInputChange}
-                            /> 
+                            />  */}
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Hasil Pemeriksaan</Form.Label>
-                            <Form.Control
+                            <Form.Select aria-label="Default select example" onChange={handleInputChange} name='hasilPemeriksaan'>
+                                <option>Pilih Hasil Pemeriksaan</option>
+                                <option value="NEGATIF">NEGATIF</option>
+                                <option value="POSITIF">POSITIF</option>
+                            </Form.Select>
+                            {/* <Form.Control
                                 type="text"
                                 name='hasilPemeriksaan'
                                 value={results.hasilPemeriksaan}
                                 placeholder="Masukan Hasil Pemeriksaan"
                                 style={{ backgroundColor: '#EEF0F3' }}
                                 onChange={handleInputChange}
-                            />
+                            /> */}
                         </Form.Group>
                     </Col>
                     <Col>
@@ -145,7 +155,7 @@ function ModalUpdate(props) {
                         <Form.Text className="text-muted mb-4">
                             <div>&nbsp;</div>
                         </Form.Text>
-                            
+
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Nilai Normal</Form.Label>
                             <Form.Control
@@ -158,22 +168,32 @@ function ModalUpdate(props) {
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Kesimpulan Eng</Form.Label>
-                            <Form.Control
+                            {/* <Form.Control
                                 type="text"
                                 name='kesimpulanEng'
                                 value={results.kesimpulanEng}
                                 style={{ backgroundColor: '#EEF0F3' }}
-                                onChange={handleInputChange} />
+                                onChange={handleInputChange} /> */}
+                            <Form.Select aria-label="Default select example" onChange={handleInputChange} name='kesimpulanEng'>
+                                <option>Pilih Conclusion in English</option>
+                                <option value="Based on the above, we explain that the result is Negative, but this letter does not state COVID-19 free. ">Based on the above, we explain that the result is Negative, but this letter does not state COVID-19 free. </option>
+                                <option value="Based on the above, we explain that the result is Positive, Please do a PCR swab test for makesure.">Based on the above, we explain that the result is Positive, Please do a PCR swab test for makesure.</option>
+                            </Form.Select>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>kesimpulan Ina</Form.Label>
-                            <Form.Control
+                            <Form.Select aria-label="Default select example" onChange={handleInputChange} name='kesimpulanIna'>
+                                <option>Pilih kesimpulan dalam Indonesia</option>
+                                <option value="Berdasarkan hasil diatas, maka kami menerangkan bahwa hasilnya Negatif, Namun demikian surat ini bukan menyatakan bebas COVID -19">Berdasarkan hasil diatas, maka kami menerangkan bahwa hasilnya Negatif, Namun demikian surat ini bukan menyatakan bebas COVID -19</option>
+                                <option value="Berdasarkan hasil diatas, maka kami menerangkan bahwa hasilnya Positif ,Mohon segera lakukan Pemeriksaan PCR swab test untuk memastikannya. ">Berdasarkan hasil diatas, maka kami menerangkan bahwa hasilnya Positif ,Mohon segera lakukan Pemeriksaan PCR swab test untuk memastikannya. </option>
+                            </Form.Select>
+                            {/* <Form.Control
                                 type="text"
                                 name='kesimpulanIna'
                                 placeholder="Masukan kesimpulan Ina"
                                 value={results.kesimpulanIna}
                                 style={{ backgroundColor: '#EEF0F3' }}
-                                onChange={handleInputChange} />
+                                onChange={handleInputChange} /> */}
                         </Form.Group>
                     </Col>
                 </Row>
