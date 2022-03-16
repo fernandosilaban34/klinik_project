@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Form, Button, Container, InputGroup, FormControl } from 'react-bootstrap'
-import ModalCetak from '../component/ModalCetak';
+import ModalCetakUser from '../component/ModalCetakUser';
 import { useDispatch, useSelector, connect } from 'react-redux';
 import { VALIDATE_PASIEN } from '../Action';
 import { useIsMount } from '../costum-hooks/useIsMount';
@@ -77,7 +77,7 @@ export default function User(props) {
 
     return (
         <Container style={{ paddingTop: 10, paddingBottom: 10, paddingTop: '10%' }}>
-            {modalShowCetak == true ? <ModalCetak
+            {modalShowCetak == true ? <ModalCetakUser
                 show={modalShowCetak}
                 dataPasien={dataUpdate}
                 onHide={() => setModalShowCetak(false)}
