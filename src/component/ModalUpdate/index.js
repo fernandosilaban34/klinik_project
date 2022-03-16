@@ -100,7 +100,7 @@ function ModalUpdate(props) {
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>jenisKelamin</Form.Label>
                             <Form.Select aria-label="Default select example" name='jenisKelamin' onChange={handleInputChange}>
-                                <option value={results.jenisKelamin}>{results.jenisKelamin}</option>
+                                <option disabled value={results.jenisKelamin}>{results.jenisKelamin}</option>
                                 <option disabled>--------</option>
                                 <option value="Laki-laki">Laki-laki</option>
                                 <option value="Perempuan">Perempuan</option>
@@ -117,7 +117,7 @@ function ModalUpdate(props) {
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Hasil Pemeriksaan</Form.Label>
                             <Form.Select aria-label="Default select example" onChange={handleInputChange} name='hasilPemeriksaan'>
-                                <option value={results.hasilPemeriksaan}>{results.hasilPemeriksaan}</option>
+                                <option disabled value={results.hasilPemeriksaan}>{results.hasilPemeriksaan}</option>
                                 <option disabled>--------</option>
                                 <option value="NEGATIF">NEGATIF</option>
                                 <option value="POSITIF">POSITIF</option>
@@ -161,7 +161,7 @@ function ModalUpdate(props) {
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Nilai Normal</Form.Label>
                             <Form.Select aria-label="Default select example" onChange={handleInputChange} name='nilaiNormal'>
-                                <option value={results.nilaiNormal}>{results.nilaiNormal}</option>
+                                <option disabled value={results.nilaiNormal}>{results.nilaiNormal}</option>
                                 <option disabled>--------</option>
                                 <option value="NEGATIF">NEGATIF</option>
                                 <option value="POSITIF">POSITIF</option>
@@ -183,7 +183,7 @@ function ModalUpdate(props) {
                                 style={{ backgroundColor: '#EEF0F3' }}
                                 onChange={handleInputChange} /> */}
                             <Form.Select as="select" custom aria-label="Default select example" onChange={handleInputChange} name='kesimpulanEng'>
-                                <option>{results.kesimpulanEng}</option>
+                                <option disabled>{results.kesimpulanEng}</option>
                                 <option disabled>--------</option>
                                 <option value="Based on the above, we explain that the result is Negative, but this letter does not state COVID-19 free.">Based on the above, we explain that the result is Negative, but this letter does not state COVID-19 free. </option>
                                 <option value="Based on the above, we explain that the result is Positive, Please do a PCR swab test for makesure.">Based on the above, we explain that the result is Positive, Please do a PCR swab test for makesure.</option>
@@ -192,7 +192,7 @@ function ModalUpdate(props) {
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Kesimpulan Ind</Form.Label>
                             <Form.Select aria-label="Default select example" onChange={handleInputChange} name='kesimpulanIna'>
-                                <option>{results.kesimpulanIna}</option>
+                                <option disabled>{results.kesimpulanIna}</option>
                                 <option disabled>--------</option>
                                 <option value="Berdasarkan hasil diatas, maka kami menerangkan bahwa hasilnya Negatif, Namun demikian surat ini bukan menyatakan bebas COVID -19">Berdasarkan hasil diatas, maka kami menerangkan bahwa hasilnya Negatif, Namun demikian surat ini bukan menyatakan bebas COVID -19</option>
                                 <option value="Berdasarkan hasil diatas, maka kami menerangkan bahwa hasilnya Positif ,Mohon segera lakukan Pemeriksaan PCR swab test untuk memastikannya. ">Berdasarkan hasil diatas, maka kami menerangkan bahwa hasilnya Positif ,Mohon segera lakukan Pemeriksaan PCR swab test untuk memastikannya. </option>

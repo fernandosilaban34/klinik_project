@@ -215,14 +215,15 @@ const ModalCetak = (props) => {
                 size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
+                
             >
                 <Modal.Footer>
                     <div className="Post" ref={ref}>
                         <div class="paper">
                             <div class="header">
-                                <h5>ANTIGEN SWAB EXAMINATION CERTIFICATE
-                                    SURAT KETERANGAN PEMERIKSAAN SWAB ANTIGEN
-                                </h5>
+                                <div><p>ANTIGEN SWAB EXAMINATION CERTIFICATE</p></div>
+                                    <p>SURAT KETERANGAN PEMERIKSAAN SWAB ANTIGEN
+                                </p>
                             </div>
 
                             <table style={{ border: '1px solid' }} className='tablePDF'>

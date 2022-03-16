@@ -40,7 +40,7 @@ const GenerateQR = (props) => {
     let resultNew = results
     dispatch(INPUT_DATA_PASIEN(resultNew));
 
-
+    console.log(dataRedux.data)
     alert(dataRedux.results.massage)
     history.push('/dashboard')
     window.location.reload();
@@ -87,14 +87,6 @@ const GenerateQR = (props) => {
                 <option value="Laki-laki">Laki-laki</option>
                 <option value="Perempuan">Perempuan</option>
               </Form.Select>
-              {/* <Form.Control
-                type="text"
-                name='jenisKelamin'
-                value={results.jenisKelamin}
-                placeholder="Masukan Jenis Kelamin"
-                style={{ backgroundColor: '#EEF0F3' }}
-                onChange={handleInputChange}
-              /> */}
             </Form.Group>
             <Form.Text className="text-muted mb-4 mt-4">
               Keterangan Data

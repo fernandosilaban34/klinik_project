@@ -16,6 +16,7 @@ function ModalDelete(props) {
         if (dataRedux.results.code == 200) {
             alert(dataRedux.results.message)
             window.location.reload();
+
         }
     }
 
@@ -26,6 +27,7 @@ function ModalDelete(props) {
             if (response.data.code == 200) {
                 alert(response.data.message)
                 dispatch(LOAD_DATA_PASIEN())
+                window.location.reload();
             } else {
                 alert(response.data.message)
             }
@@ -33,6 +35,10 @@ function ModalDelete(props) {
             alert(err)
         })
         // setdataUpdate(item)
+    }
+
+    function handleClose(params) {
+        
     }
 
     return (
@@ -48,7 +54,7 @@ function ModalDelete(props) {
 
             <Modal.Footer>
                 <Button variant="secondary" onClick={props.onHide}>Close</Button>
-                <Button variant="danger" onClick={HandleDeletePasien}>Hapus</Button>
+        <Button variant="danger" onClick={HandleDeletePasien}>Hapus</Button>
             </Modal.Footer>
         </Modal>
     )

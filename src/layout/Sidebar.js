@@ -28,9 +28,9 @@ const Sidebar = () => {
             <NavLink exact to="/input-data" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="chart-line" style={{borderRadius:5}}>Input Data</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/data-pasien" activeClassName="activeClicked">
+            {/* <NavLink exact to="/data-pasien" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="table" style={{borderRadius:5}}>Data Pasien</CDBSidebarMenuItem>
-            </NavLink>
+            </NavLink> */}
             {/* <NavLink exact to="/profile" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user" style={{borderRadius:5}}>Profile page</CDBSidebarMenuItem>
             </NavLink>

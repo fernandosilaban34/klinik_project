@@ -14,7 +14,7 @@ const Login = () => {
   const [password, setPassword] = React.useState('');
 
   function onLoggin() {
-    dispatch(LOGGIN_IN(username, password))
+    dispatch(LOGGIN_IN(username.replace( /</g, '\\u003c'), password.replace( /</g, '\\u003c')))
   }
 
   useEffect(() => {
