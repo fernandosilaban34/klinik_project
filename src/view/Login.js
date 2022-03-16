@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { Form, Button, Container, InputGroup, FormControl } from 'react-bootstrap'
 import { useHistory } from "react-router-dom";
 import { LOGGIN_IN } from '../Action/Login';
+import Logo from '../assests/logo.png'
 import { useDispatch, useSelector, connect } from 'react-redux';
 import axios from 'axios';
 
@@ -14,28 +15,28 @@ const Login = () => {
   const [password, setPassword] = React.useState('');
 
   function onLoggin() {
-    dispatch(LOGGIN_IN(username.replace( /</g, '\\u003c'), password.replace( /</g, '\\u003c')))
+    dispatch(LOGGIN_IN(username.replace(/</g, '\\u003c'), password.replace(/</g, '\\u003c')))
   }
 
   useEffect(() => {
   }, [dataRedux])
-  
+
 
   async function handleLogin() {
     await axios.post(`http://8.215.37.21:5021/globaldoctor/user/login`, {
-            username, 
-            password
-        }).then(response => {
-          console.log(response.data.message)
-          if (response.data.code == 200) {
-            history.push('/dashboard')
-          }else{
-            alert(response.data.message)
-          }
-        }).catch(err => {
-          alert('Harap masukan username/password')
-      })
-  } 
+      username,
+      password
+    }).then(response => {
+      console.log(response.data.message)
+      if (response.data.code == 200) {
+        history.push('/dashboard')
+      } else {
+        alert(response.data.message)
+      }
+    }).catch(err => {
+      alert('Harap masukan username/password')
+    })
+  }
 
   const handleUsername = (e) => {
     setUsername(e.target.value)
@@ -46,7 +47,14 @@ const Login = () => {
   }
 
   return (
-    <Container style={{ paddingTop: 10, paddingBottom: 10, paddingTop: '10%' }}>
+    <Container style={{paddingBottom: 10, paddingTop: '6%' }}>
+      <div style={{ alignSelf: 'center' }}>
+        <img style={{
+          height: 100, marginBottom: 30, alignSelf: 'center', display: 'block',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+        }} src={Logo} />
+      </div>
       <h1 style={{ textAlign: 'center', marginBottom: 50 }}>GLOBAL DOCTOR</h1>
       <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', height: '100%', borderRadius: 10 }}>
         <div style={{ backgroundColor: '#198754', padding: 50, borderRadius: 10, boxShadow: "5px 5px 5px #9E9E9E" }}>
