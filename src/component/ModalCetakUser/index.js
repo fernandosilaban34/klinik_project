@@ -212,7 +212,7 @@ const ModalCetakUser = (props) => {
                     </Pdf>
                 </Modal.Footer>
             </Modal> */}
-            <div style={{backgroundColor:'white', width:2000, height: 2000, position:'relative'}}></div>
+            <div style={{backgroundColor:'white', width:2000, height: 2000, position:'absolute'}}></div>
             <div style={{width:'100%', height:'100%'}}>
                 <div className="Post" ref={ref}>
                     <div class="paper">
