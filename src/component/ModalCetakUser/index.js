@@ -174,7 +174,7 @@ const ModalCetakUser = (props) => {
                                 </div>
                                 <Row>
                                     <div style={{ width: '50%', height: 50, marginLeft: 15, marginTop: 50 }}>
-                                        <p style={styles.fontNormalVcnenter}>{props.dataPasien.kotaPemeriksaan},{moment(props.dataPasien.tglPemeriksaan).format("DD MMMM YYYY")}</p>
+                                        <p style={styles.fontNormalVcnenter}>Jakarta,{moment(props.dataPasien.tglPemeriksaan).format("DD MMMM YYYY")}</p>
                                     </div>
                                     <div style={{ width: '40%', height: 50, marginLeft: 15, marginTop: 50 }}>
                                         <p style={styles.fontNormalVcnenter}>Silahkan untuk scan barcode dibawah ini untuk melihat hasil pemeriksaan</p>
