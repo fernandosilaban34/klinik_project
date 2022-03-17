@@ -12,7 +12,6 @@ export const LOGGIN_IN = (username, password) => {
             username, 
             password
         }).then(response => {
-            console.log(response.data);
             dispatch({
                 type: "LOGGIN_IN",
                 payload: response.data

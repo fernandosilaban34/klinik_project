@@ -11,7 +11,7 @@ const QRcode = ({ text }) => {
   }, []);
   return (
     <div>
-      <img src={code} />
+      <img style={{height: 120}} src={code} />
     </div>
   );
 };

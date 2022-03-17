@@ -8,6 +8,7 @@ const MainNavbar = () => {
 
     function Logout() {
         history.push('/login')
+        localStorage.removeItem('user');
     }
 
 

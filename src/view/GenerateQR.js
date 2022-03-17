@@ -47,6 +47,14 @@ const GenerateQR = (props) => {
 
   }
 
+  useEffect(() => {
+
+    if (localStorage.getItem('user') == null || localStorage.getItem('user') == '') {
+      history.push('/login')
+    }
+  }, [])
+
+
 
   return (
     <Card style={{ marginLeft: 40, marginRight: 40 }}>
@@ -135,7 +143,7 @@ const GenerateQR = (props) => {
                 value={results.nilaiNormal}
                 style={{ backgroundColor: '#EEF0F3' }}
                 onChange={handleInputChange} /> */}
-                <Form.Select aria-label="Default select example" onChange={handleInputChange} name='nilaiNormal'>
+              <Form.Select aria-label="Default select example" onChange={handleInputChange} name='nilaiNormal'>
                 <option>Pilih Nilai Normal</option>
                 <option value="NEGATIF">NEGATIF</option>
                 <option value="POSITIF">POSITIF</option>

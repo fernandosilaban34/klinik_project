@@ -7,7 +7,9 @@ import Pdf from "react-to-pdf";
 import QRcode from '../../data/qrcode';
 import '../../assests/pdf.css'
 import Logo from '../../assests/logo.png'
-
+import TopPdf from '../../assests/atas surat.png'
+import BottomPdf from '../../assests/footerpdf.png'
+import Ttd from '../../assests/ttd.png'
 
 const ModalCetakUser = (props) => {
     const history = useHistory();
@@ -43,8 +45,11 @@ const ModalCetakUser = (props) => {
                     <div style={{ overflow: 'scroll', height: 600 }}>
                         <div className="Post" ref={ref}>
                             <div class="paper">
-                                <div style={{ width: '50%', paddingTop:10 }}>
-                                    <img style={{ height: 100, position: 'relative', left:480, marginBottom:30, }} src={Logo} />
+                            <div>
+                                <img style={{ width:'100%', height: 15, marginBottom:20}} src={TopPdf} />
+                            </div>
+                                <div style={{ width: '50%' }}>
+                                    <img style={{ height: 80, position: 'relative', left: 470, marginBottom: 20 }} src={Logo} />
                                 </div>
                                 <p style={{ textAlign: 'center', fontSize: 15, fontWeight: 'bold' }}><u>ANTIGEN SWAB EXAMINATION CERTIFICATE</u></p>
                                 <p style={{ textAlign: 'center', fontSize: 13 }}>SURAT KETERANGAN PEMERIKSAAN SWAB ANTIGEN</p>
@@ -173,15 +178,21 @@ const ModalCetakUser = (props) => {
                                     <p style={{ fontSize: 10 }}>Sertifikat ini dibuat sebagaimana mestinya</p>
                                 </div>
                                 <Row>
-                                    <div style={{ width: '50%', height: 50, marginLeft: 15, marginTop: 50 }}>
+                                    <div style={{ width: '50%', height: 50, marginLeft: 20, marginTop: 20 }}>
                                         <p style={styles.fontNormalVcnenter}>Jakarta,{moment(props.dataPasien.tglPemeriksaan).format("DD MMMM YYYY")}</p>
+                                        <div style={{ width: '50%', paddingLeft: 65, paddingTop: 20 }}>
+                                            <img style={{ height: 120, position: 'relative', marginBottom: 30 }} src={Ttd} />
+                                        </div>
                                     </div>
-                                    <div style={{ width: '40%', height: 50, marginLeft: 15, marginTop: 50 }}>
+                                    <div style={{ width: '40%', height: 50, marginLeft: 20, marginTop: 20 }}>
                                         <p style={styles.fontNormalVcnenter}>Silahkan untuk scan barcode dibawah ini untuk melihat hasil pemeriksaan</p>
-                                        <div style={{ marginLeft: 100 }}>
+                                        <div style={{ paddingLeft: 70 , height: 100}}>
                                             <QRcode text={url} />
                                         </div>
                                     </div>
+                                <div style={{ width: '100%' }}>
+                                    <img style={{ height: 100, position: 'relative', marginTop:155 }} src={BottomPdf} />
+                                </div>
                                 </Row>
                             </div>
                         </div>
@@ -233,7 +244,6 @@ const styles = {
     },
     fontNormalVcnenter: {
         fontSize: 12,
-        paddingTop: 5,
         paddingBottom: 5,
         textAlign: 'center',
     },

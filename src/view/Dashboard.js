@@ -4,12 +4,14 @@ import { useDispatch, useSelector, connect } from 'react-redux';
 import { Container, Row, Col, Card, InputGroup, Button, FormControl, Dropdown, Modal, Pagination } from 'react-bootstrap'
 import '../assests/style.css'
 import { LOAD_DATA_PASIEN } from '../Action';
+import { useHistory } from "react-router-dom";
 import ModalUpdate from '../component/ModalUpdate';
 import ModalDelete from '../component/ModalDelete';
 import ModalCetak from '../component/ModalCetak';
 import axios from 'axios';
 
 export default function Dashboard() {
+	let history = useHistory();
 	const dispatch = useDispatch();
 	const [modalShow, setModalShow] = React.useState(false);
 	const [modalShowDelete, setModalShowDelete] = React.useState(false);
@@ -24,6 +26,9 @@ export default function Dashboard() {
 
 	useEffect(() => {
 		dispatch(LOAD_DATA_PASIEN());
+		if (localStorage.getItem('user') == null || localStorage.getItem('user') == '') {
+			history.push('/login')
+		}
 	}, [dispatch])
 
 	const dataPasien = !dataRedux.results.data ? [{}] : dataRedux.results.data
@@ -32,7 +37,6 @@ export default function Dashboard() {
 		await axios.post(`http://8.215.37.21:5021/globaldoctor/pasien/getDataPasien`, {
 			nik: nik
 		}).then(response => {
-			console.log(response.data.data, 'jejej');
 			if (response.data.code == 200) {
 				console.log('hayes');
 				setdataFind(response.data.data)

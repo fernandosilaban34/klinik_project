@@ -29,6 +29,7 @@ const Login = () => {
     }).then(response => {
       console.log(response.data.message)
       if (response.data.code == 200) {
+          localStorage.setItem('user', JSON.stringify(response.data.data));
         history.push('/dashboard')
       } else {
         alert(response.data.message)
