@@ -3,9 +3,6 @@
     flex: 1;
     flex-direction: column;
     margin-left: 50px;
-    height: initial !important;
-    overflow: initial !important;
-    -webkit-print-color-adjust: exact;
     margin-right: 50px;
     height: 1070px;
     width: 700px;
