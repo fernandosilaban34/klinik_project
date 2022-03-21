@@ -219,7 +219,7 @@ const ModalCetakUser = (props) => {
                     <div style={{ overflow: 'scroll', height: 600 }}>
                     <div className="Post" style={{ position: 'relative' }}>
                     <div>
-                        <img style={{ width: '100%', height: 15, marginBottom: 20 }} src={TopPdf} />
+                        <img style={{ width: 750, height: 15, marginBottom: 20 }} src={TopPdf} />
                     </div>
                     <div class="paper" >
                         <div style={{ width: '50%' }}>
@@ -387,9 +387,8 @@ const ModalCetakUser = (props) => {
                             </div>
                         </Row>
                     </div>
-                    <img style={{ height: 100, width: '100%', position: 'relative', top: -100 }} src={BottomPdf} />
+                    <img style={{ height: 100, position: 'relative', top: -100 }} src={BottomPdf} />
                 </div>
-                        <img style={{ height: 100, width: '100%', position: 'relative', top: -100 }} src={BottomPdf} />
                     </div>
                     <div>
                         <Pdf filename={filename} targetRef={ref}>
