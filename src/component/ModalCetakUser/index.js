@@ -35,7 +35,7 @@ const ModalCetakUser = (props) => {
         <>
             <div style={{ height: 600, position: 'absolute', top: -4000 }}>
                 <div className="Post" style={{ position: 'relative' }} ref={ref}>
-                    <img style={{ width: '100%', height: 15, marginBottom: 20 }} src={TopPdf} />
+                    <img style={{ width: '21cm', height: 15, marginBottom: 20 }} src={TopPdf} />
 
                     <div class="paper" >
                         <div style={{ width: '50%' }}>
@@ -218,7 +218,7 @@ const ModalCetakUser = (props) => {
                             </div>
                         </Row>
                     </div>
-                    <img style={{ height: 100, width: '100%', position: 'relative', top: -100 }} src={BottomPdf} />
+                    <img style={{ height: 100, width: '21cm', position: 'relative', top: -100 }} src={BottomPdf} />
                 </div>
             </div>
             <Modal
@@ -232,8 +232,7 @@ const ModalCetakUser = (props) => {
                 <Modal.Footer>
                     <div style={{ overflow: 'scroll', height: 600 }}>
                         <div className="Post" style={{ position: 'relative' }}>
-                            <img style={{ width: '100%', height: 15, marginBottom: 20 }} src={TopPdf} />
-
+                            <img style={{ width: '21cm', height: 15, marginBottom: 20 }} src={TopPdf} />
                             <div class="paper" >
                                 <div style={{ width: '50%' }}>
                                     <img style={{ height: 80, position: 'relative', left: 520, marginBottom: 20 }} src={Logo} />
@@ -415,7 +414,7 @@ const ModalCetakUser = (props) => {
                                     </div>
                                 </Row>
                             </div>
-                            <img style={{ height: 100, width: '100%', position: 'relative', top: -100 }} src={BottomPdf} />
+                            <img style={{ height: 100, width: '21cm', position: 'relative', top: -100 }} src={BottomPdf} />
                         </div>
                     </div>
                     <div>
