@@ -33,7 +33,7 @@ const ModalCetak = (props) => {
     return (
         <>
             <div style={{ height: 600, position: 'absolute', top: -4000 }}>
-                <div className="Post" style={{ position: 'relative' }} ref={ref}>
+                <div className="Post" style={{ position: 'relative', scale: 2 }} ref={ref}>
                     <img style={{ width: '21cm', height: 15, marginBottom: 20 }} src={TopPdf} />
 
                     <div class="paper" >

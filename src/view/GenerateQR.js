@@ -4,6 +4,7 @@ import { useDispatch, useSelector, connect } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import * as moment from 'moment'
 import { INPUT_DATA_PASIEN } from '../Action';
+import axios from 'axios';
 
 const GenerateQR = (props) => {
   let history = useHistory();
@@ -36,16 +37,43 @@ const GenerateQR = (props) => {
     setResult(resultsNew);
   }
 
-  function handleOnClick() {
-    let resultNew = results
-    dispatch(INPUT_DATA_PASIEN(resultNew));
-
-    console.log(dataRedux.data)
-    alert(dataRedux.results.massage)
-    history.push('/dashboard')
-    window.location.reload();
-
+  async function handleOnClick() {
+    await axios.post(`http://8.215.37.21:5021/globaldoctor/pasien/addDataPasien`, {
+      IDPasien: `${results.IDPasien}`,
+      waktuPengambilanSampel: `${results.waktuPengambilanSampel}`,
+      waktuPemeriksaan: `${results.waktuPemeriksaan}`,
+      tglPemeriksaan: `${results.tglPemeriksaan}`,
+      namaPasien: `${results.namaPasien}`,
+      NIK: `${results.NIK}`,
+      tglLahir: `${results.tglLahir}`,
+      jenisKelamin: `${results.jenisKelamin}`,
+      tipePemeriksaan: `${results.tipePemeriksaan}`,
+      hasilPemeriksaan: `${results.hasilPemeriksaan}`,
+      nilaiNormal: `${results.nilaiNormal}`,
+      kesimpulanEng: `${results.kesimpulanEng}`,
+      kesimpulanIna: `${results.kesimpulanIna}`
+    }).then(response => {
+      console.log(response, 'response.data')
+      if (response.data.code == 200) {
+        alert(response.data.message)
+        history.push('/dashboard')
+        window.location.reload();
+      } else {
+        alert(response.data.message)
+      }
+    }).catch(err => {
+      console.log(err);
+      alert(err.response.data.error)
+    })
+    // setdataUpdate(item)
   }
+  // let resultNew = results
+  // dispatch(INPUT_DATA_PASIEN(resultNew));
+
+  // console.log(dataRedux.data)
+  // alert(dataRedux.results.massage)
+  // history.push('/dashboard')
+  // window.location.reload();
 
   useEffect(() => {
 
