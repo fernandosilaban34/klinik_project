@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 import ModalUpdate from '../component/ModalUpdate';
 import ModalDelete from '../component/ModalDelete';
 import ModalCetak from '../component/ModalCetak';
+import ModalCetakNonKop from '../component/ModalCetakNonKop';
 import axios from 'axios';
 
 export default function Dashboard() {
@@ -16,6 +17,7 @@ export default function Dashboard() {
 	const [modalShow, setModalShow] = React.useState(false);
 	const [modalShowDelete, setModalShowDelete] = React.useState(false);
 	const [modalShowCetak, setModalShowCetak] = React.useState(false);
+	const [modalShowCetakNonKop, setModalShowCetakNonKop] = React.useState(false);
 	const [nik, setNik] = React.useState('');
 	const dataRedux = useSelector((state) => state.dataPasien)
 	const [dataReduxTemp, setDataReduxTemp] = React.useState(dataRedux);
@@ -63,6 +65,10 @@ export default function Dashboard() {
 		setdataUpdate(item)
 		setModalShowCetak(true)
 	}
+	function handleDidCetakNonKop(item) {
+		setdataUpdate(item)
+		setModalShowCetakNonKop(true)
+	}
 
 	function handleDidDelete(item) {
 		setdataUpdate(item)
@@ -85,6 +91,11 @@ export default function Dashboard() {
 				show={modalShowCetak}
 				dataPasien={dataUpdate}
 				onHide={() => setModalShowCetak(false)}
+			/> : null}
+			{modalShowCetakNonKop == true ? <ModalCetakNonKop
+				show={modalShowCetakNonKop}
+				dataPasien={dataUpdate}
+				onHide={() => setModalShowCetakNonKop(false)}
 			/> : null}
 			<Row noGutters className="page-header py-4">
 				<Card.Text sm="4" title="Add New Post" subtitle="Blog Posts" className="text-sm-left" />
@@ -163,6 +174,7 @@ export default function Dashboard() {
 															<Dropdown.Item onClick={() => handleDidUpdate(item)} style={{ fontSize: 13 }}>Edit</Dropdown.Item>
 															<Dropdown.Item onClick={() => handleDidDelete(item)} style={{ color: 'red', fontSize: 13 }}>Delete</Dropdown.Item>
 															<Dropdown.Item onClick={() => handleDidCetak(item)} style={{ color: 'green', fontSize: 13 }}>Cetak</Dropdown.Item>
+															<Dropdown.Item onClick={() => handleDidCetakNonKop(item)} style={{ color: 'blue', fontSize: 13 }}>CetakNonKop</Dropdown.Item>
 														</Dropdown.Menu>
 													</Dropdown></td>
 												</tr>
@@ -189,6 +201,7 @@ export default function Dashboard() {
 															<Dropdown.Item onClick={() => handleDidUpdate(item)} style={{ fontSize: 13 }}>Edit</Dropdown.Item>
 															<Dropdown.Item onClick={() => handleDidDelete(item)} style={{ color: 'red', fontSize: 13 }}>Delete</Dropdown.Item>
 															<Dropdown.Item onClick={() => handleDidCetak(item)} style={{ color: 'green', fontSize: 13 }}>Cetak</Dropdown.Item>
+															<Dropdown.Item onClick={() => handleDidCetakNonKop(item)} style={{ color: 'blue', fontSize: 13 }}>CetakNonKop</Dropdown.Item>
 														</Dropdown.Menu>
 													</Dropdown></td>
 												</tr>
