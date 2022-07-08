@@ -6,8 +6,6 @@ import * as moment from 'moment';
 import Pdf from "react-to-pdf";
 import QRcode from '../../data/qrcode';
 import '../../assests/pdf.css'
-import Logo from '../../assests/logo.png'
-import Ttd from '../../assests/ttd.png'
 
 
 const ModalCetakNonKop = (props) => {
@@ -34,7 +32,7 @@ const ModalCetakNonKop = (props) => {
                 <div className="Post" style={{ position: 'relative' }} ref={ref}>
                     <div class="paper" >
                     <div style={{ width: '50%' }}>
-                                    <div style={{ height: 80, position: 'relative', left: 520, marginBottom: 20 }}>
+                                    <div style={{ height: 80, position: 'relative', left: 520, marginBottom: 50 }}>
                                         </div>
                                 </div>
                         <p style={{ textAlign: 'center', fontSize: 15, fontWeight: 'bold' }}><u>ANTIGEN SWAB EXAMINATION CERTIFICATE</u></p>
@@ -203,7 +201,7 @@ const ModalCetakNonKop = (props) => {
                             <div style={{ width: '50%', height: 50, marginTop: 20 }}>
                                 <p style={{ fontSize: 12 }}>Jakarta,{moment(props.dataPasien.tglPemeriksaan).format("DD MMMM YYYY")}</p>
                                 <div style={{ width: '50%', paddingTop: 20 }}>
-                                    <img style={{ height: 120, position: 'relative', marginBottom: 30, left: -15 }} src={Ttd} />
+                                    <div style={{ height: 120, position: 'relative', marginBottom: 30, left: -15 }}/>
                                 </div>
                             </div>
                             <div style={{ width: '40%', height: 50, marginLeft: 20, marginTop: 20 }}>
@@ -230,7 +228,7 @@ const ModalCetakNonKop = (props) => {
                             
                             <div class="paper" >
                                 <div style={{ width: '50%' }}>
-                                    <div style={{ height: 80, position: 'relative', left: 520, marginBottom: 20 }}>
+                                    <div style={{ height: 80, position: 'relative', left: 520, marginBottom: 50 }}>
                                         </div>
                                 </div>
                                 <p style={{ textAlign: 'center', fontSize: 15, fontWeight: 'bold' }}><u>ANTIGEN SWAB EXAMINATION CERTIFICATE</u></p>
@@ -399,7 +397,7 @@ const ModalCetakNonKop = (props) => {
                                     <div style={{ width: '50%', height: 50, marginTop: 20 }}>
                                         <p style={{ fontSize: 12 }}>Jakarta,{moment(props.dataPasien.tglPemeriksaan).format("DD MMMM YYYY")}</p>
                                         <div style={{ width: '50%', paddingTop: 20 }}>
-                                            <img style={{ height: 120, position: 'relative', marginBottom: 30, left: -15 }} src={Ttd} />
+                                            <div style={{ height: 120, position: 'relative', marginBottom: 30, left: -15 }}/>
                                         </div>
                                     </div>
                                     <div style={{ width: '40%', height: 50, marginLeft: 20, marginTop: 20 }}>
