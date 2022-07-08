@@ -10,6 +10,7 @@ import ModalDelete from '../component/ModalDelete';
 import ModalCetak from '../component/ModalCetak';
 import ModalCetakNonKop from '../component/ModalCetakNonKop';
 import axios from 'axios';
+import PaginatedItems from '../component/Pagination';
 
 export default function Dashboard() {
 	let history = useHistory();
@@ -22,8 +23,11 @@ export default function Dashboard() {
 	const dataRedux = useSelector((state) => state.dataPasien)
 	const [dataReduxTemp, setDataReduxTemp] = React.useState(dataRedux);
 	const [dataUpdate, setdataUpdate] = React.useState();
+	const [datapasien, setDatapasien] = React.useState([]);
 	const [dataFind, setdataFind] = React.useState();
-	
+
+	const [currentPage, setCurrentPage] = React.useState(1);
+	const [postPerPage, setPostPerPage] = React.useState(10);
 
 
 	useEffect(() => {
@@ -33,7 +37,9 @@ export default function Dashboard() {
 		}
 	}, [dispatch])
 
-	const dataPasien = !dataRedux.results.data ? [{}] : dataRedux.results.data
+	useEffect(() => {
+		setDatapasien(dataRedux.results.data);
+	}, [dataRedux])
 
 	async function handleGetDataPasien() {
 		await axios.post(`http://8.215.37.21:5021/globaldoctor/pasien/getDataPasien`, {
@@ -59,6 +65,13 @@ export default function Dashboard() {
 
 	function handleChangeNik(e) {
 		setNik(e.target.value)
+		console.log(nik);
+		setTimeout(() => {
+			const hasil = [dataRedux.results.data.filter(e => e.NIK?.indexOf(nik) !== -1)]
+
+			console.log(hasil);
+			setDatapasien(hasil[0])
+		}, 2000);
 	}
 
 	function handleDidCetak(item) {
@@ -74,6 +87,12 @@ export default function Dashboard() {
 		setdataUpdate(item)
 		setModalShowDelete(true)
 	}
+
+	const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+	const indexOfLastPost = currentPage * postPerPage;
+	const indexOfFirstPost = indexOfLastPost - postPerPage;
+	const currentPost = datapasien?.slice(indexOfFirstPost, indexOfLastPost)
 
 	return (
 		<Container fluid className="main-content-container px-4" style={{ fontFamily: 'inherit' }}>
@@ -101,17 +120,18 @@ export default function Dashboard() {
 				<Card.Text sm="4" title="Add New Post" subtitle="Blog Posts" className="text-sm-left" />
 				<InputGroup className='shadow-none bg-light rounded' style={{ width: '20%', marginLeft: 20 }}>
 					<FormControl
-						type="text"
+						type="number"
 						placeholder="Cari Pasien Dengan NIK.."
 						aria-label="Cari Pasien.."
 						aria-describedby="btnGroupAddon"
 						className="me-2 block-example border border-dark"
 						value={nik}
 						onChange={(e) => handleChangeNik(e)}
+						onInput={(e) => handleChangeNik(e)}
 						style={{ backgroundColor: '#FFF', fontSize: 13 }}
 					/>
 				</InputGroup>
-				<Button variant="primary" style={{ width: 80 }} onClick={handleGetDataPasien}>Cari</Button>
+				{/* <Button variant="primary" style={{ width: 80 }} onClick={handleGetDataPasien}>Cari</Button> */}
 			</Row>
 			<Row>
 				<Col>
@@ -152,81 +172,38 @@ export default function Dashboard() {
 										</th>
 									</tr>
 								</thead>
-								{nik == "" ?
-									<tbody>
-										{dataPasien.map((item, i) => {
-											return [
-												<tr key={i} style={{ fontFamily: 'inherit' }}>
-													<td className='text-center' style={{ fontSize: 13 }}>{item.IDPasien}</td>
-													<td className='text-center' style={{ fontSize: 13 }}>{item.namaPasien}</td>
-													<td className='text-center' style={{ fontSize: 13 }}>{item.NIK}</td>
-													<td className='text-center' style={{ fontSize: 13 }}>{moment(item.tglLahir).format('DD-MM-YYYY')}</td>
-													<td className='text-center' style={{ fontSize: 13 }}>{item.hasilPemeriksaan}</td>
-													<td className='text-center' style={{ fontSize: 13 }}>{moment(item.tglPenerimaan).format('DD-MM-YYYY')}</td>
-													<td className='text-center' style={{ fontSize: 13 }}>{item.tipePemeriksaan}</td>
-													<td className='text-center' style={{ fontSize: 13 }}>{moment(item.tglPemeriksaan).format('DD-MM-YYYY')}</td>
-													<td className='text-center' style={{ fontSize: 13 }}><Dropdown>
-														<Dropdown.Toggle variant="success" id="dropdown-basic">
-															...
-														</Dropdown.Toggle>
+								<tbody>
+									{currentPost?.map((item, i) => {
+										return [
+											<tr key={i} style={{ fontFamily: 'inherit' }}>
+												<td className='text-center' style={{ fontSize: 13 }}>{item.IDPasien}</td>
+												<td className='text-center' style={{ fontSize: 13 }}>{item.namaPasien}</td>
+												<td className='text-center' style={{ fontSize: 13 }}>{item.NIK}</td>
+												<td className='text-center' style={{ fontSize: 13 }}>{moment(item.tglLahir).format('DD-MM-YYYY')}</td>
+												<td className='text-center' style={{ fontSize: 13 }}>{item.hasilPemeriksaan}</td>
+												<td className='text-center' style={{ fontSize: 13 }}>{moment(item.tglPenerimaan).format('DD-MM-YYYY')}</td>
+												<td className='text-center' style={{ fontSize: 13 }}>{item.tipePemeriksaan}</td>
+												<td className='text-center' style={{ fontSize: 13 }}>{moment(item.tglPemeriksaan).format('DD-MM-YYYY')}</td>
+												<td className='text-center' style={{ fontSize: 13 }}><Dropdown>
+													<Dropdown.Toggle variant="success" id="dropdown-basic">
+														...
+													</Dropdown.Toggle>
 
-														<Dropdown.Menu>
-															<Dropdown.Item onClick={() => handleDidUpdate(item)} style={{ fontSize: 13 }}>Edit</Dropdown.Item>
-															<Dropdown.Item onClick={() => handleDidDelete(item)} style={{ color: 'red', fontSize: 13 }}>Delete</Dropdown.Item>
-															<Dropdown.Item onClick={() => handleDidCetak(item)} style={{ color: 'green', fontSize: 13 }}>Cetak</Dropdown.Item>
-															<Dropdown.Item onClick={() => handleDidCetakNonKop(item)} style={{ color: 'blue', fontSize: 13 }}>CetakNonKop</Dropdown.Item>
-														</Dropdown.Menu>
-													</Dropdown></td>
-												</tr>
-											]
-										})}
-									</tbody> : <tbody>
-										{dataFind?.map((item, i) => {
-											return [
-												<tr key={i} style={{ fontFamily: 'inherit' }}>
-													<td className='text-center' style={{ fontSize: 13 }}>{item.IDPasien}</td>
-													<td className='text-center' style={{ fontSize: 13 }}>{item.namaPasien}</td>
-													<td className='text-center' style={{ fontSize: 13 }}>{item.NIK}</td>
-													<td className='text-center' style={{ fontSize: 13 }}>{moment(item.tglLahir).format('DD-MM-YYYY')}</td>
-													<td className='text-center' style={{ fontSize: 13 }}>{item.hasilPemeriksaan}</td>
-													<td className='text-center' style={{ fontSize: 13 }}>{moment(item.tglPenerimaan).format('DD-MM-YYYY')}</td>
-													<td className='text-center' style={{ fontSize: 13 }}>{item.tipePemeriksaan}</td>
-													<td className='text-center' style={{ fontSize: 13 }}>{moment(item.tglPemeriksaan).format('DD-MM-YYYY')}</td>
-													<td className='text-center' style={{ fontSize: 13 }}><Dropdown>
-														<Dropdown.Toggle variant="success" id="dropdown-basic">
-															...
-														</Dropdown.Toggle>
-
-														<Dropdown.Menu>
-															<Dropdown.Item onClick={() => handleDidUpdate(item)} style={{ fontSize: 13 }}>Edit</Dropdown.Item>
-															<Dropdown.Item onClick={() => handleDidDelete(item)} style={{ color: 'red', fontSize: 13 }}>Delete</Dropdown.Item>
-															<Dropdown.Item onClick={() => handleDidCetak(item)} style={{ color: 'green', fontSize: 13 }}>Cetak</Dropdown.Item>
-															<Dropdown.Item onClick={() => handleDidCetakNonKop(item)} style={{ color: 'blue', fontSize: 13 }}>CetakNonKop</Dropdown.Item>
-														</Dropdown.Menu>
-													</Dropdown></td>
-												</tr>
-											]
-										})}
-									</tbody>
-								}
+													<Dropdown.Menu>
+														<Dropdown.Item onClick={() => handleDidUpdate(item)} style={{ fontSize: 13 }}>Edit</Dropdown.Item>
+														<Dropdown.Item onClick={() => handleDidDelete(item)} style={{ color: 'red', fontSize: 13 }}>Delete</Dropdown.Item>
+														<Dropdown.Item onClick={() => handleDidCetak(item)} style={{ color: 'green', fontSize: 13 }}>Cetak</Dropdown.Item>
+														<Dropdown.Item onClick={() => handleDidCetakNonKop(item)} style={{ color: 'blue', fontSize: 13 }}>CetakNonKop</Dropdown.Item>
+													</Dropdown.Menu>
+												</Dropdown></td>
+											</tr>
+										]
+									})}
+								</tbody>
 							</table>
-							<Pagination>
-								<Pagination.First />
-								<Pagination.Prev />
-								<Pagination.Item>{1}</Pagination.Item>
-								<Pagination.Ellipsis />
-
-								<Pagination.Item>{10}</Pagination.Item>
-								<Pagination.Item>{11}</Pagination.Item>
-								<Pagination.Item active>{12}</Pagination.Item>
-								<Pagination.Item>{13}</Pagination.Item>
-								<Pagination.Item disabled>{14}</Pagination.Item>
-
-								<Pagination.Ellipsis />
-								<Pagination.Item>{20}</Pagination.Item>
-								<Pagination.Next />
-								<Pagination.Last />
-							</Pagination>
+							<div style={{display:'flex', justifyContent:'flex-end', marginTop: 20}}>
+								<PaginatedItems postPerPage={postPerPage} totalPost={datapasien?.length} paginate={paginate} />
+							</div>
 						</Card.Body>
 					</Card>
 				</Col>

@@ -45,13 +45,6 @@ const Sidebar = () => {
         </CDBSidebarContent>
 
         <CDBSidebarFooter style={{ textAlign: 'center' }}>
-          <div
-            style={{
-              padding: '20px 5px',
-            }}
-          >
-            Sidebar Footer
-          </div>
         </CDBSidebarFooter>
       </CDBSidebar>
     </div>
